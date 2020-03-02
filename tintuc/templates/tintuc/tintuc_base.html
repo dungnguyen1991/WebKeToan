@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <a href="">
+                    <img src="{% static 'images/LOGO_SAOVANG_KT_THUE_TV_02_2.png' %}" alt="Không thể load logo!">
+            </a>
+        </div>
+        <div class="right">
+            <h1>CÔNG TY KẾ TOÁN VÀ TƯ VẤN SAO VÀNG</h1>
+            <p class="dia_chi">Số 9 Phan Kế Bính, Phường Đa Kao, Quận 1, Tp.HCM, Việt Nam</p>
+            <p>Tel: 
+                <span>028.6283.3918</span> - 
+                <span>0914.19.07.07</span> - 
+                <span>0942.05.04.07</span> -
+                Fax: <span>028.6283.3923</span>
+            </p>
+            <p>Email: <span>ngocthu@ketoansaovang.com</span></p>
+        </div>
+        <div class="sign_in_sign_out">
+            <p>
+                <a href="#">Đăng nhập</a> | <a href="#">Đăng ký</a>
+            </p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="">TRANG CHỦ</a></li>
+            <li><a href="#">GIỚI THIỆU</a>
+                <ul>
+                    <li><a href="#">Giới Thiệu Công Ty Sao Vàng</a></li>
+                    <li><a href="#">Đội Ngũ Lãnh Đạo</a></li>
+                    <li><a href="#">Giấy Phép Hành Nghề</a></li>
+                    <li><a href="#">Giới Thiệu Dịch Vụ</a></li>
+                    <li><a href="#">Khách Hàng Tiêu Biểu</a></li>
+                    <li><a href="#">Hình Ảnh Công Ty</a></li>
+                    <li><a href="#">Thông Điệp và Cam Kết</a></li>
+                </ul>
+            </li>
+            <li><a href="#">DỊCH VỤ</a>
+                <ul>
+                    <li><a href="#">Dịch Vụ Kế Toán</a></li>
+                    <li><a href="#">Dịch Vụ Thủ Tục Thuế</a></li>
+                    <li><a href="#">Dịch Vụ Tính Lương- BHXH</a></li>
+                    <li><a href="#">Văn Phòng Đại Diện</a></li>
+                    <li><a href="#">Thành Lập Công Ty</a></li>
+                    <li><a href="#">Dịch Vụ Văn Phòng Ảo</a></li>
+                </ul>
+            </li>
+            <li><a href="#">PHÍ DỊCH VỤ</a>
+                <ul>
+                    <li><a href="#">Phí dịch vụ kế toán</a></li>
+                    <li><a href="#">Phí dịch vụ thủ tục thuế</a></li>
+                    <li><a href="#">Phí đăng ký doanh nghiệp</a></li>
+                    <li><a href="#">Lao động-Tiền lương</a></li>
+                    <li><a href="#">Dịch vụ văn phòng đại diện</a></li>
+                    <li><a href="#">Phí dịch vụ văn phòng ảo</a></li>
+                </ul>
+            </li>
+            <li><a href="#">QUY ĐỊNH VÀ NGHIỆP VỤ</a>
+                <ul>
+                    <li><a href="#">TIN KẾ TOÁN</a></li>
+                    <li><a href="#">TIN KIỂM TOÁN</a></li>
+                    <li><a href="#">TIN TỨC THUẾ</a></li>
+                    <li><a href="#">TIẾN LƯƠNG-BHXH</a></li>
+                    <li><a href="#">TIN PHÁP LUẬT</a></li>
+                    <li><a href="#">TIN KINH TẾ-TÀI CHÍNH</a></li>
+                    <li><a href="#">TIN CỦA SAO VÀNG</a></li>
+                    <li><a href="#">BẢN TIN PHÁP LUẬT</a></li>
+                    <li><a href="#">TIN NGHIỆP VỤ</a></li>
+                    <li><a href="#">TIN TỨC KHÁC</a></li>
+                    <li><a href="#">KINH NGHIỆM-KIẾN THỨC</a></li>
+                </ul>
+            </li>
+            <li><a href="#">KHÁCH HÀNG</a>
+                <ul>
+                    <li><a href="#">KHÁCH HÀNG TIÊU BIỂU</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'tintuc' %}" class='active'>TIN TỨC</a>
+                <ul>
+                    {% block tintuc_main_menu %}
+                    {% endblock %}
+                    
+                </ul>
+            </li>
+            <li><a href="#">TUYỂN DỤNG</a>
+                <ul>
+                    <li><a href="#">SAO VÀNG TUYỂN DỤNG</a></li>
+                </ul>
+            </li>
+            <li><a class="last" href="#">LIÊN HỆ</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <img src="{% static 'images/keToanBanner.png' %}" alt="">
+
+        <div class="left_content">
+            <div class="left_menu">
+                <div class="title">
+                    DANH MỤC
+                </div>
+                <ul class="items">
+                    {% block left_menu %}
+                    {% endblock %}
+                    <!-- <li><a href="#">TIN KẾ TOÁN</a></li>
+                    <li><a href="#">TIN KIỂM TOÁN</a></li>
+                    <li><a href="#">TIN TỨC THUẾ</a></li>
+                    <li><a href="#">TIẾN LƯƠNG-BHXH</a></li>
+                    <li><a href="#">TIN PHÁP LUẬT</a></li>
+                    <li><a href="#">TIN KINH TẾ-TÀI CHÍNH</a></li>
+                    <li><a href="#">TIN CỦA SAO VÀNG</a></li>
+                    <li><a href="#">BẢN TIN PHÁP LUẬT</a></li>
+                    <li><a href="#">TIN NGHIỆP VỤ</a></li>
+                    <li><a href="#">TIN TỨC KHÁC</a></li>
+                    <li><a href="#">KINH NGHIỆM-KIẾN THỨC</a></li> -->
+                </ul>
+            </div>
+            <div class="right">
+                    {% block main_content %}
+
+                    {% endblock %}
+            </div>
+        </div>
+        
+        <div class="right_content"></div>
+
+    </div>
+
+    <footer>
+        <div class="content">
+            <h3>TRỤ SỞ CHÍNH: QUẬN 1 - TP.HCM</h3>
+            <p><span>Địa chỉ</span>: <span>Lầu 4, Số 9 Phan Kế Bính, P.Đa Kao, Quận 1, Tp.HCM</span></p>
+            <p>
+                <span>Tel</span>
+                :
+                <span>028.6283.3918 - 0914.19.07.07 - 0942.05.04.07</span>
+            </p>
+            <p>
+                <span>Email</span>
+                :
+                <span>ngocthu@ketoansaovang.com</span>
+            </p>
+        </div>
+        <div class="content">
+            <h3>CHI NHÁNH BÌNH THẠNH - TP.HCM</h3>
+            <p><span>Địa chỉ</span>: <span>P7-38.OT07, Park 7, Vinhomes Central Park, 720A Điện Biên Phủ, Bình Thạnh, Tp.HCM</span></p>
+            <p>
+                <span>Tel</span>
+                :
+                <span>028.6283.3918 - 0914.19.07.07 - 0942.05.04.07</span>
+            </p>
+            <p>
+                <span>Email</span>
+                :
+                <span>ngocthu@ketoansaovang.com</span>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

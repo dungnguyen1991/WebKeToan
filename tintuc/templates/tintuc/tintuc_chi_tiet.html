@@ -1,0 +1,48 @@
+{% extends 'tintuc/tintuc_base.html' %}
+
+{% load static %}
+
+{% block tintuc_main_menu %}
+    {% for loai_tin_tuc in loaitintucs.all %}
+    <li><a href="{% url 'tin_tuc_theo_loai' loai_tin_tuc.id %}">{{ loai_tin_tuc }}</a></li>
+    {% endfor %}
+{% endblock %}
+
+
+
+{% block left_menu %}
+    {% for loai_tin_tuc in loaitintucs.all %}
+    <li><a {% if loai_tin_tuc == tintuc.loai_tin_tuc %} class="active" {% endif %} href="{% url 'tin_tuc_theo_loai' loai_tin_tuc.id %}">{{ loai_tin_tuc }}</a></li>
+    {% endfor %}
+{% endblock%}
+
+{% block main_content %}
+
+    <h3>{{ tintuc.loai_tin_tuc }}</h3>
+
+    <div class="detail">
+        <h4>{{ tintuc.tieu_de }}</h4>
+        <p><span class="ngay-tao">{{ tintuc.ngay_tao_day_du }}</span></p>
+        <img src="{{ tintuc.image.url }}" alt="">
+        <strong>{{ tintuc.mo_ta_ngan|safe }}</strong>
+        {{ tintuc.noi_dung|safe }}
+    </div>
+
+    <div class="function">
+        <a href="{% url 'in_tin_tuc' tintuc.id %}" target="_blank"><img class="print" src="{% static 'images/icon_print.png' %}" alt=""></a>
+    </div>
+    
+    {% if cac_tin_tuc_lien_quan.count != 0 %}
+    <div class="relative">
+        <h4>CÁC TIN KHÁC:</h4>
+
+        <div>
+            <ul>
+                {% for tin_tuc_lien_quan in cac_tin_tuc_lien_quan %}
+                <li><a href="{% url 'tin_tuc_chi_tiet' tin_tuc_lien_quan.id %}">{{ tin_tuc_lien_quan.tieu_de }}</a> <span class="ngay-tao">({{ tin_tuc_lien_quan.ngay_tao_ngan }})</span> </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

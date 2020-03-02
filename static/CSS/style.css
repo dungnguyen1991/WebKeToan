@@ -1,0 +1,739 @@
+*{
+    margin: 0px;
+    padding: 0px;
+	box-sizing: border-box;
+}
+
+/* Tieu de trang */
+body{
+    background-color: wheat;
+}
+
+header{
+    height: 160px;
+    width: 960px;
+    padding: 0px;
+    margin: 0px auto;
+	margin-top: -10px;
+	background: rgb(227,227,227);
+    background: linear-gradient(0deg, rgba(227,227,227,1) 35%, rgba(255,255,255,1) 100%);
+    position: relative;
+}
+
+header #logo{
+    display: block;
+    float: left;
+    margin: 0;
+    width: 30%;
+    height: 100%;
+    text-align: center;
+    /* can giua theo chieu doc */
+    display: flex;
+    flex-wrap: wrap;
+    align-content:center;
+}
+
+header #logo img{
+    width: 250px;
+}
+
+header .right{
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+}
+
+header .right h1{
+    font-size: 25px;
+    padding-bottom: 5px;
+    color: red;
+}
+
+header .right .dia_chi{
+    padding-bottom: 5px;
+    color: #01125ace;
+}
+
+header .right span{
+    color: blue;
+}
+
+header .sign_in_sign_out{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+header .sign_in_sign_out a{
+    text-decoration: none;
+}
+
+header .sign_in_sign_out a:hover{
+    text-decoration: underline;
+}
+
+/* main menu */
+nav{
+    width: 960px;
+    margin:0 auto;
+    padding: 0;
+    font-size: 12px;
+}
+
+nav li{
+    list-style: none;
+    /* display: inline-block; */
+    /* float: left; */
+}
+
+nav > ul > li{
+    float: left;
+}
+
+nav li ul{
+    display: none;
+    position: absolute;
+    
+    /* background-color: #0084e2; */
+    
+}
+
+nav li:hover ul{
+    display: block;
+    z-index: 1;
+}
+
+nav a{
+    padding: 15px 15px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #0084e2;
+}
+nav a:hover{
+    /* background-color: #db0707ce; */
+    background-color: #a50404;
+}
+
+nav .active{
+	background-color: #a50404;
+}
+
+nav>ul{
+    text-align: center;
+}
+
+nav>ul>li{
+    position: relative;
+}
+
+nav>ul>li>a{
+    border-right: 1px solid gray;
+}
+
+nav>ul>li>ul a{
+    width: 200px;
+    text-align: left;
+    display: block;
+    border-top: 1px solid white;
+}
+
+nav .last{
+    padding-left: 14px;
+    padding-right: 13px;
+    border-right: none;
+}
+
+/* Noi dung */
+.container{
+    width: 960px;
+    margin:0 auto;
+    background-color: white;
+}
+
+.container::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container img{
+    width: 960px;
+    /* xoa khoan trang giua image va div */
+    display: block;
+}
+
+.container .left_content{
+    width: 725px;
+    display: block;
+    float: left;
+}
+
+.container .right_content{
+    width: 235px;
+    float: right;
+    height: 800px;
+    background-color: #f0f0f0;
+}
+
+/*CSS cho trang chi tiet*/
+.container .left_content > div.right, .container .left_content > div.left_menu{
+    float: left;
+}
+
+.container .left_content .left_menu{
+    width: 210px;
+    background-color: #f0f0f0;
+}
+
+.container .left_content .right{
+    width: 495px;
+}
+
+
+/* dinh dang cho block_0 */
+#block_0{
+    margin: 15px 20px;
+    border-left: 1px solid gray;
+    box-shadow: 5px 5px 5px 0px #D8D2D3;
+    border-radius: 5px;
+    background: rgb(241,239,239);
+    background: linear-gradient(0deg, rgba(241,239,239,1) 24%, rgba(255,255,255,1) 100%);
+}
+
+#block_0::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#block_0 li{
+    list-style: none;
+}
+
+#block_0 ul{
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#block_0 ul:first-child{
+    border-right: 1px solid gray;
+}
+
+#block_0 a{
+    text-decoration: none;
+    color: black;
+    margin-left: 15px;
+    padding: 10px 15px;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+}
+
+#block_0 a:hover{
+    text-decoration: underline;
+}
+
+#block_0 a:before{
+    content: " ";
+    background-image: url(../images/next.png);
+    width: 16px;
+    height: 16px;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: -10px;
+}
+
+#block_0 .title h1{
+    text-align: center;
+    padding: 15px 15px;
+    background-color: #0084e2;
+    color: white;
+    font-size: 17px;
+    font-weight: normal;
+    border-top-left-radius: 5px;
+}
+
+#block_0 .body{
+    text-align: left;
+}
+
+/* Block CSS */
+.block{
+    margin: 15px 20px;
+}
+
+.block::after{
+    content: " ";
+    clear: both;
+    display: table;
+}
+
+.block > div{
+    width: 48%;
+    border: 1px solid gray;
+    box-shadow: 5px 5px 5px 0px #D8D2D3;
+    background: rgb(247,246,246);
+    background: linear-gradient(0deg, rgba(247,246,246,1) 24%, rgba(255,255,255,1) 66%);
+    /* position: relative; */
+}
+
+.block .body > div{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.block h3{
+    padding: 15px 15px;
+    background-color: #0084e2;
+    color: white;
+    font-size: 17px;
+    font-weight: normal;
+}
+
+.block img{
+    width: 100px;
+    border: 2px solid gray;
+    display: inline-block;
+    /* height: 80px; */
+}
+
+.block .content{
+    display: inline-block;
+}
+
+.block .content h4, .block .content p{
+    width: 180px;
+    margin-left: 10px;
+}
+
+.block .content a{
+    color: black;
+    text-decoration: none;
+}
+
+.block .content a:hover{
+    color: blue;
+}
+
+.block li{
+    list-style: none;
+    /* margin-top: 5px; */
+}
+
+.block ul a{
+    font-size: 14px;
+    color: blue;
+    text-decoration: none;
+    margin-left: 10px;
+    padding-top: 5px;
+    display: block;
+}
+
+.block ul a:hover{
+    text-decoration: underline;
+}
+
+.block .view_more{
+    /* position: absolute; */
+    right: 10;
+    bottom: 0;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 14px;
+}
+
+.block .view_more a{
+    text-decoration: none;
+    color: blue;
+}
+
+.block .left_box{
+    float: left;
+}
+
+.block .right_box{
+    float: right;
+}
+
+/* Nhan mail trang chu */
+.nhan_mail{
+    text-align: center;
+    background-color: #ddd9d9dc;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nhan_mail p{
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.nhan_mail #dang_ky{
+    padding: 10px 20px;
+    border: none;
+    background-color: rgb(179, 8, 8);
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nhan_mail #mail{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 0px;
+}
+
+.nhan_mail input[type="submit"]{
+    padding: 11px 15px;
+    background-color: #0181de;
+    border: none;
+    margin-left: 0px;
+    cursor: pointer;
+}
+
+/* KE_TOAN_SAO_VANG_1.png */
+.block_images > img{
+    width: 685px;
+    border: none;
+}
+
+/* HỎI ĐÁP - TƯ VẤN */
+.full_test{
+    margin-top: 11px;
+}
+
+/* block 1 */
+.block_1{
+    margin: 15px 20px;
+}
+
+.block_1::after{
+    content: " ";
+    clear: both;
+    display: table;
+}
+
+.block_1 > div{
+    width: 48%;
+    border: 1px solid gray;
+    box-shadow: 5px 5px 5px 0px #D8D2D3;
+    background: rgb(247,246,246);
+    background: linear-gradient(0deg, rgba(247,246,246,1) 24%, rgba(255,255,255,1) 66%);
+    /* position: relative; */
+}
+
+.block_1 .body > div{
+    padding-top: 10px;
+    padding-left: 10px;
+    position: relative;
+
+}
+
+.block_1 .body > div:not(:first-child){
+    border-top: 1px dotted gray;
+
+}
+
+.block_1 h3{
+    padding: 15px 15px;
+    background-color: #0084e2;
+    color: white;
+    font-size: 17px;
+    font-weight: normal;
+}
+
+.block_1 img{
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    border: 1px solid gray;
+}
+
+.block_1 .content{
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    
+}
+
+.block_1 .content h4, .block_1 .content p{
+    font-size: 13px;
+    width: 200px;
+    margin-left: 10px;
+}
+
+.block_1 .content a{
+    color: black;
+    text-decoration: none;
+}
+
+.block_1 .content a:hover{
+    color: blue;
+}
+
+
+.block_1 .view_more{
+    right: 10;
+    bottom: 0;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 14px;
+}
+
+.block_1 .view_more a{
+    text-decoration: none;
+    color: blue;
+}
+
+.block_1 .left_box{
+    float: left;
+}
+
+.block_1 .right_box{
+    float: right;
+}
+
+/* footer */
+footer{
+    background-color: #5e5d5d;
+    /* border: 1px solid black; */
+    width: 960px;
+    margin:0 auto;
+}
+
+footer::after{
+    content: " ";
+    clear: both;
+    display: table;
+}
+
+footer h3{
+    color: white;
+    margin-bottom: 5px;
+}
+
+footer .content{
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    margin: 20px 0px;
+    color: rgb(0, 255, 255)
+}
+
+footer .content:not(:first-child){
+    border-left: 1px solid rgba(0, 0, 0, 0.623);
+}
+
+/* Trang chi tiet ------------------------------------------- */
+/* left_menu */
+.left_menu .title{
+    font-weight: bold;
+    padding-top: 15px;
+    /* padding-bottom: 15px; */
+    padding-left: 10px;
+    font-size: 16px;
+}
+.left_menu li{
+    list-style: none;
+}
+
+.left_menu a{
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    margin: 1px 5px;
+    font-size: 14px;
+    text-decoration: none;
+    background-color: #cfd4d8f6;
+    color: blue;
+    text-transform: capitalize;
+}
+
+.left_menu a:hover{
+    background-color: #0084e2;
+    color: white;
+}
+
+.left_menu a.active{
+    background-color: #0084e2;
+    color: white;
+}
+
+
+/* main_content */
+.container .right{
+    margin: 10px;
+}
+
+.container .right .ngay-tao{
+    color: gray;
+}
+
+/* hien thi danh sach tin tuc */
+.container .right .item::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container .right .item{
+    border-top: 1px dotted gray;
+	padding-top: 15px;
+	padding-bottom:15px;
+
+}
+
+.container .right .item > a{ 
+	display: block;
+	float: left;
+	width: 25%;
+}
+
+.container .right .item img{
+    width: 115px;
+    height: 90px;
+    /*display: inline-block;*/
+	display: block;
+	
+    border: 1px solid gray;
+}
+
+.container .right .item .content{
+	display: block;
+	float: left;
+	width: 75%;
+}
+
+.container .right .item .content a{
+	text-decoration: none;
+	color:blue;
+}
+
+.container .right .item .content a:hover{
+	text-decoration: underline;
+}
+
+.container .right .item .content h4, .container .right .item .content p, .container .right .item .content div{
+    font-size: 13px;
+}
+
+/* phan trang */
+.container .right .naginator{
+    text-align: center;
+    display: block;
+}
+
+.container .right .naginator::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container .right .naginator li{
+    list-style: none;
+    /* float: left; */
+    display: inline-block;
+}
+
+.container .right .naginator span{
+    margin: 3px;
+    border: 1px solid gray;
+    color: white;
+    font-weight: bold;
+    background-color: blue;
+    display: block;
+    width: 27px;
+    line-height: 23px;
+}
+
+.container .right .naginator a{
+    margin: 3px;
+    border: 1px solid gray;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: block;
+    width: 27px;
+    line-height: 23px;
+}
+
+.container .right .naginator a:hover{
+    color: white;
+    background-color: blue;
+}
+
+/* hien thi chi tiet tin tuc */
+.container .right .detail{
+    border-top: 1px dotted gray;
+    border-bottom: 1px dotted gray;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 13px;
+}
+
+.container .right .detail h4{
+    color: red;
+}
+
+.container .right .detail img{
+    width: 115px;
+    height: 90px;
+    float: left;
+    margin-right: 5px;
+}
+
+.container .right .relative{
+    margin-top: 10px;
+    border-top: dotted 1px gray;
+    font-size: 13px;
+    padding-top: 10px;
+}
+
+.container .right .relative h4{
+    margin-bottom: 5px;
+}
+
+.container .right .relative li{
+    list-style: none;
+}
+
+.container .right .relative a{
+    text-decoration: none;
+    color: blue;
+}
+
+.container .right .relative a:hover{
+    text-decoration: underline;
+}
+
+.container .right .function{
+    margin-top: 10px;
+}
+
+.container .right .function .print{
+    width: 16px;
+    float: right;
+}
+
+.container .right .function::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Trang in */
+br {
+    clear: both;
+}

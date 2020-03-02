@@ -1,0 +1,60 @@
+{% extends 'tintuc/tintuc_base.html' %}
+
+{% block tintuc_main_menu %}
+    {% for loai_tin_tuc in loaitintucs.all %}
+    <li><a href="{% url 'tin_tuc_theo_loai' loai_tin_tuc.id %}">{{ loai_tin_tuc }}</a></li>
+    {% endfor %}
+{% endblock %}
+
+
+
+{% block left_menu %}
+    {% for loai_tin_tuc in loaitintucs %}
+    <li><a {% if loai_tin_tuc == loai_tin_tuc_duoc_chon %} class="active" {% endif %} href="{% url 'tin_tuc_theo_loai' loai_tin_tuc.id %}">{{ loai_tin_tuc }}</a></li>
+    {% endfor %}
+{% endblock%}
+
+{% block main_content %}
+
+    {% if loai_tin_tuc_duoc_chon == null %}
+    <h3>TIN TỨC</h3>
+    {% else %}
+    <h3>{{ loai_tin_tuc_duoc_chon }}</h3>
+    {%  endif %}
+
+    {% for tin_tuc in tintucs %}
+    <div class="item">
+        <a href="{% url 'tin_tuc_chi_tiet' tin_tuc.id %}"><img src="{{ tin_tuc.image.url }}" alt=""></a>
+        <div class="content">
+            <h4><a href="{% url 'tin_tuc_chi_tiet' tin_tuc.id %}">{{ tin_tuc.tieu_de }}</a></h4>
+            <p><span class="ngay-tao">({{ tin_tuc.ngay_tao_danh_muc }})</span></p>
+            {{ tin_tuc.mo_ta_ngan|safe }}
+        </div>
+    </div>
+    {% endfor %}
+
+    {% if tintucs.paginator.num_pages > 1 %}
+    <ul class="naginator">
+        {% if xu_ly_phan_trang.chuyen_den_trang_dau %}
+        <li><a href="?page=1">&laquo;</a></li>
+        {% endif %}
+        {% if tintucs.has_previous %}
+        <li><a href="?page={{ tintucs.previous_page_number }}">&lt;</a></li>
+        {% endif %}
+
+        {% for page in tintucs.paginator.page_range %}
+        {% if tintucs.number == page %}
+        <li><span>{{page}}</span></li>
+        {% elif page >= xu_ly_phan_trang.trang_bat_dau and page <= xu_ly_phan_trang.trang_ket_thuc %}
+        <li><a href="?page={{page}}">{{page}}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if tintucs.has_next %}
+        <li><a href="?page={{ tintucs.next_page_number}}">	&gt;</a></li>
+        {% endif %}
+        {% if xu_ly_phan_trang.chuyen_den_trang_cuoi%}
+        <li><a href="?page={{tintucs.paginator.num_pages}}">&raquo;</a></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+{% endblock %}

@@ -1,7 +1,8 @@
 *{
     margin: 0px;
     padding: 0px;
-	box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Times New Roman", Times, serif;
 }
 
 /* Tieu de trang */
@@ -132,17 +133,17 @@ nav>ul>li>a{
     border-right: 1px solid gray;
 }
 
+nav>ul>li:last-child>a{
+    padding-left: 14px;
+    padding-right: 13px;
+    border-right: none;
+}
+
 nav>ul>li>ul a{
     width: 200px;
     text-align: left;
     display: block;
     border-top: 1px solid white;
-}
-
-nav .last{
-    padding-left: 14px;
-    padding-right: 13px;
-    border-right: none;
 }
 
 /* Noi dung */
@@ -613,7 +614,8 @@ footer .content:not(:first-child){
 .container .right .item .content{
 	display: block;
 	float: left;
-	width: 75%;
+    width: 75%;
+    font-size: 13px;
 }
 
 .container .right .item .content a{

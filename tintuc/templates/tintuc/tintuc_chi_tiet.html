@@ -11,14 +11,14 @@
 
 
 {% block left_menu %}
-    {% for loai_tin_tuc in loaitintucs.all %}
-    <li><a {% if loai_tin_tuc == tintuc.loai_tin_tuc %} class="active" {% endif %} href="{% url 'tin_tuc_theo_loai' loai_tin_tuc.id %}">{{ loai_tin_tuc }}</a></li>
+    {% for loai_tin_tuc in loaitintucs %}
+    <li><a {% if loai_tin_tuc == tintuc.menu %} class="active" {% endif %} href="{% url 'tin_tuc_theo_loai' loai_tin_tuc.id %}">{{ loai_tin_tuc }}</a></li>
     {% endfor %}
 {% endblock%}
 
 {% block main_content %}
 
-    <h3>{{ tintuc.loai_tin_tuc }}</h3>
+    <h3>{{ tintuc.menu }}</h3>
 
     <div class="detail">
         <h4>{{ tintuc.tieu_de }}</h4>

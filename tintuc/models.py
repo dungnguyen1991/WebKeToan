@@ -1,6 +1,7 @@
 from django.db import models
 import pytz
 from django.utils import timezone
+from trangchu.models import Menu
 
 # Create your models here.
 class LoaiTinTuc(models.Model):
@@ -10,8 +11,9 @@ class LoaiTinTuc(models.Model):
         return self.ten_loai_tin_tuc
 
 
+
 class TinTuc(models.Model):
-    loai_tin_tuc = models.ForeignKey(LoaiTinTuc, on_delete=models.CASCADE, default = 1)
+    menu = models.ForeignKey(Menu, on_delete=models.CASCADE, default = 1)
     tieu_de = models.CharField(max_length = 255)
     ngay_tao = models.DateTimeField()
     mo_ta_ngan = models.TextField()

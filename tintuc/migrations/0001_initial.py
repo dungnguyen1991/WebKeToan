@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='TinTuc',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('tien_de', models.CharField(max_length=255)),
+                ('tieu_de', models.CharField(max_length=255)),
                 ('ngay_tao', models.DateTimeField()),
                 ('mo_ta_ngan', models.TextField()),
                 ('image', models.ImageField(upload_to='images/')),

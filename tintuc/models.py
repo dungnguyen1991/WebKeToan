@@ -4,11 +4,11 @@ from django.utils import timezone
 from trangchu.models import Menu
 
 # Create your models here.
-class LoaiTinTuc(models.Model):
-    ten_loai_tin_tuc = models.CharField(max_length = 255)
+# class LoaiTinTuc(models.Model):
+#     ten_loai_tin_tuc = models.CharField(max_length = 255)
 
-    def __str__(self):
-        return self.ten_loai_tin_tuc
+#     def __str__(self):
+#         return self.ten_loai_tin_tuc
 
 
 

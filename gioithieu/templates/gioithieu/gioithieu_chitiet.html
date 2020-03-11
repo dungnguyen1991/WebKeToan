@@ -1,7 +1,16 @@
 {% extends 'gioithieu/gioithieu_base.html' %}
 
 {% block left_menu %}
-
+{% for item in danh_muc %}
+<li><a href="{% url 'chi_tiet' item.id %}">{{item}}</a></li>
+{% endfor %}
 {% endblock %}
 
-{% block main_content %}{% endblock %}
+{% block main_content %}
+<h3>{{ gioithieu.menu }}</h3>
+
+<div class="detail">
+    <h4>{{ gioithieu.tieu_de }}</h4>
+    {{ gioithieu.noi_dung|safe }}
+</div>
+{% endblock %}

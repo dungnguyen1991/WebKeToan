@@ -3,6 +3,7 @@ from .models import  TinTuc
 from trangchu.models import Menu
 from trangchu.views import create_menu
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import get_object_or_404
 
 def phan_trang(trang_hien_tai, tong_so_trang, so_trang_hien_thi):
      # phan trang
@@ -62,7 +63,7 @@ def tat_ca_tin_tuc(request):
 
 def tin_tuc_theo_loai(request, loai_tin_tuc_id):
     loaitintucs = Menu.objects.filter(menu_parent=Menu.objects.get(menu_link='/tintuc/'))
-    loai_tin_tuc_duoc_chon = Menu.objects.get(pk=loai_tin_tuc_id)
+    loai_tin_tuc_duoc_chon = get_object_or_404(Menu, pk=loai_tin_tuc_id)
     danh_sach_tintucs = TinTuc.objects.filter(menu=loai_tin_tuc_duoc_chon).order_by('-ngay_tao')
 
      # get trang hien tai
@@ -86,7 +87,7 @@ def tin_tuc_theo_loai(request, loai_tin_tuc_id):
 
 def tin_tuc_chi_tiet(request, tin_tuc_id):
     loaitintucs = Menu.objects.filter(menu_parent=Menu.objects.get(menu_link='/tintuc/'))
-    tintuc = TinTuc.objects.get(pk=tin_tuc_id)
+    tintuc = get_object_or_404(TinTuc, pk=tin_tuc_id)
     cac_tin_tuc_lien_quan = TinTuc.objects.filter(menu=tintuc.menu).exclude(pk=tintuc.pk).order_by('-ngay_tao')[:8]
     return render(request, 'tintuc/tintuc_chi_tiet.html', {'loaitintucs':loaitintucs,
                                                         'tintuc':tintuc,

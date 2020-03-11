@@ -14,9 +14,7 @@ class TinTucAdmin(admin.ModelAdmin):
         if db_field.name == "menu":
             # Menu.objects.get(menu_title='dung')
             # kwargs["queryset"] = Car.objects.filter(owner=request.user)
-            print("test: ", request.user)
             kwargs["queryset"] = Menu.objects.filter(menu_parent=Menu.objects.get(menu_link='/tintuc/'))
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 admin.site.register(TinTuc, TinTucAdmin)
-# admin.site.register(LoaiTinTuc)

@@ -2,7 +2,7 @@
 
 {% block left_menu %}
 {% for item in danh_muc %}
-<li><a href="{% url 'chi_tiet' item.id %}">{{item}}</a></li>
+<li><a href="{% url 'chi_tiet' item.id %}" {% if item == gioithieu.menu %} class="active" {% endif %}>{{item}}</a></li>
 {% endfor %}
 {% endblock %}
 

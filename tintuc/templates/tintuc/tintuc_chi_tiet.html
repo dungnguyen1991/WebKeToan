@@ -2,14 +2,6 @@
 
 {% load static %}
 
-{% block tintuc_main_menu %}
-    {% for loai_tin_tuc in loaitintucs.all %}
-    <li><a href="{% url 'tin_tuc_theo_loai' loai_tin_tuc.id %}">{{ loai_tin_tuc }}</a></li>
-    {% endfor %}
-{% endblock %}
-
-
-
 {% block left_menu %}
     {% for loai_tin_tuc in loaitintucs %}
     <li><a {% if loai_tin_tuc == tintuc.menu %} class="active" {% endif %} href="{% url 'tin_tuc_theo_loai' loai_tin_tuc.id %}">{{ loai_tin_tuc }}</a></li>

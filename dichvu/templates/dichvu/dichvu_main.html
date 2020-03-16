@@ -1,0 +1,45 @@
+{% extends 'dichvu/dichvu_base.html' %}
+
+{% block left_menu %}
+{% for item in danh_muc_dich_vu %}
+<li><a href="{% url 'dich_vu_theo_loai' item.id %}">{{item}}</a></li>
+{% endfor %}
+{% endblock %}
+
+{% block main_content %}
+
+<h3>{{ dichvus.0.menu }}</h3>
+
+{% for dich_vu in dichvus %}
+<div class="item">
+    <h4><a href="{% url 'chi_tiet_dich_vu' dich_vu.id %}" class="dichvu">{{ dich_vu.tieu_de }}</a></h4>
+</div>
+{% endfor %}
+
+{% if dichvus.paginator.num_pages > 1 %}
+    <ul class="naginator">
+        {% if xu_ly_phan_trang.chuyen_den_trang_dau %}
+        <li><a href="?page=1">&laquo;</a></li>
+        {% endif %}
+        {% if dichvus.has_previous %}
+        <li><a href="?page={{ dichvus.previous_page_number }}">&lt;</a></li>
+        {% endif %}
+
+        {% for page in dichvus.paginator.page_range %}
+        {% if dichvus.number == page %}
+        <li><span>{{page}}</span></li>
+        {% elif page >= xu_ly_phan_trang.trang_bat_dau and page <= xu_ly_phan_trang.trang_ket_thuc %}
+        <li><a href="?page={{page}}">{{page}}</a></li>
+        {% endif %}
+        {% endfor %}
+        
+        {% if dichvus.has_next %}
+        <li><a href="?page={{ dichvus.next_page_number}}">	&gt;</a></li>
+        {% endif %}
+        {% if xu_ly_phan_trang.chuyen_den_trang_cuoi%}
+        <li><a href="?page={{dichvus.paginator.num_pages}}">&raquo;</a></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+
+{% endblock %}

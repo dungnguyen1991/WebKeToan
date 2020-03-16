@@ -2,7 +2,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family: "Times New Roman", Times, serif;
+    /* font-family: "Times New Roman", Times, serif; */
 }
 
 /* Tieu de trang */
@@ -67,6 +67,7 @@ header .sign_in_sign_out{
 
 header .sign_in_sign_out a{
     text-decoration: none;
+    color: blue;
 }
 
 header .sign_in_sign_out a:hover{
@@ -738,4 +739,13 @@ footer .content:not(:first-child){
 /* Trang in */
 br {
     clear: both;
+}
+
+/* Trang chi dich vu list */
+.dichvu{
+    text-decoration: none;
+    color: blue;
+    display: block;
+	float: left;
+    font-size: 13px;
 }

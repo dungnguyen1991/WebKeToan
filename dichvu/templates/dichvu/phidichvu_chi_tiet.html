@@ -1,0 +1,22 @@
+{% extends 'tintuc/tintuc_base.html' %}
+
+{% load static %}
+
+{% block left_menu %}
+    {% for loai_phi_dich_vu in danh_muc_phi_dich_vu %}
+    <li><a {% if loai_phi_dich_vu == phidichvu.menu %} class="active" {% endif %} href="{% url 'phi_dich_vu_chi_tiet' loai_phi_dich_vu.id %}">{{ loai_phi_dich_vu }}</a></li>
+    {% endfor %}
+{% endblock%}
+
+{% block main_content %}
+    <h3>{{ phidichvu.menu }}</h3>
+
+    <div class="detail">
+        <h4>{{ phidichvu.tieu_de }}</h4>
+        {{ phidichvu.noi_dung|safe }}
+    </div>
+
+    <div class="function">
+        <a href="{% url 'in_phi_dich_vu' phidichvu.id %}" target="_blank"><img class="print" src="{% static 'images/icon_print.png' %}" alt=""></a>
+    </div>
+{% endblock %}

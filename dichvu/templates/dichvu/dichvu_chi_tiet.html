@@ -1,0 +1,37 @@
+{% extends 'tintuc/tintuc_base.html' %}
+
+{% load static %}
+
+{% block left_menu %}
+    {% for loai_dich_vu in danh_muc_dich_vu %}
+    <li><a {% if loai_dich_vu == dichvu.menu %} class="active" {% endif %} href="{% url 'dich_vu_theo_loai' loai_dich_vu.id %}">{{ loai_dich_vu }}</a></li>
+    {% endfor %}
+{% endblock%}
+
+{% block main_content %}
+
+    <h3>{{ dichvu.menu }}</h3>
+
+    <div class="detail">
+        <h4>{{ dichvu.tieu_de }}</h4>
+        {{ dichvu.noi_dung|safe }}
+    </div>
+
+    <div class="function">
+        <a href="{% url 'in_dich_vu' dichvu.id %}" target="_blank"><img class="print" src="{% static 'images/icon_print.png' %}" alt=""></a>
+    </div>
+    
+    {% if cac_tin_tuc_lien_quan.count != 0 %}
+    <div class="relative">
+        <h4>CÁC DỊCH VỤ KHÁC:</h4>
+
+        <div>
+            <ul>
+                {% for dich_vu_lien_quan in cac_dich_vu_lien_quan %}
+                <li><a href="{% url 'chi_tiet_dich_vu' dich_vu_lien_quan.id %}">{{ dich_vu_lien_quan.tieu_de }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

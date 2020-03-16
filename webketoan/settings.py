@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'trangchu.apps.TrangchuConfig',
     'tintuc.apps.TintucConfig',
     'gioithieu.apps.GioithieuConfig',
+    'dichvu.apps.DichvuConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

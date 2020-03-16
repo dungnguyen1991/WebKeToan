@@ -25,4 +25,5 @@ urlpatterns = [
     path('trangchu/', views.index, name= 'index'),
     path('tintuc/', include('tintuc.urls')),
     path('gioithieu/', include('gioithieu.urls')),
+    path('dichvu/', include('dichvu.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

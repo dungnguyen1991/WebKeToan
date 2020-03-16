@@ -6,12 +6,12 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import get_object_or_404
 
 def phan_trang(trang_hien_tai, tong_so_trang, so_trang_hien_thi):
-     # phan trang
-    xu_ly_phan_trang = {}
-    # so_trang_hien_thi = 3
-    # start = tintucs.number - so_trang_hien_thi
-    # end = tintucs.number + so_trang_hien_thi
+    # phan trang
+    # so_trang_hien_thi la 1/2 so trang co the nhin thay tren giao dien
 
+
+    xu_ly_phan_trang = {}
+    
     start = trang_hien_tai - so_trang_hien_thi
     end = trang_hien_tai + so_trang_hien_thi
     xu_ly_phan_trang['chuyen_den_trang_dau'] = True
@@ -43,6 +43,7 @@ def phan_trang(trang_hien_tai, tong_so_trang, so_trang_hien_thi):
 
 def tat_ca_tin_tuc(request):
     loaitintucs = Menu.objects.filter(menu_parent=Menu.objects.get(menu_link='/tintuc/'))
+    
     danh_sach_tintucs = TinTuc.objects.order_by('-ngay_tao')
     
     # get trang hien tai
@@ -58,7 +59,9 @@ def tat_ca_tin_tuc(request):
     except EmptyPage:
         tintucs = paginator.page(paginator.num_pages)
 
-    return render(request, 'tintuc/tintuc_main.html', {'loaitintucs':loaitintucs, 'tintucs':tintucs, "main_menu": create_menu(None),
+    return render(request, 'tintuc/tintuc_main.html', {'loaitintucs':loaitintucs,
+                                                       'tintucs':tintucs,
+                                                       'main_menu': create_menu(None),
                                                        'xu_ly_phan_trang':phan_trang(tintucs.number, tintucs.paginator.num_pages, 2)})
 
 def tin_tuc_theo_loai(request, loai_tin_tuc_id):
@@ -69,7 +72,7 @@ def tin_tuc_theo_loai(request, loai_tin_tuc_id):
      # get trang hien tai
     page = request.GET.get('page', 1)
 
-    # so trang
+    # so item tren 1 trang
     paginator = Paginator(danh_sach_tintucs, 2)
     
     try:
@@ -95,5 +98,5 @@ def tin_tuc_chi_tiet(request, tin_tuc_id):
                                                         'cac_tin_tuc_lien_quan':cac_tin_tuc_lien_quan})
 
 def in_tin_tuc(request, tin_tuc_id):
-    tintuc = TinTuc.objects.get(pk=tin_tuc_id)
+    tintuc = get_object_or_404(TinTuc, pk=tin_tuc_id)
     return render(request, 'tintuc/tintuc_print.html', {'tintuc':tintuc})

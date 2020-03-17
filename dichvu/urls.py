@@ -9,4 +9,6 @@ urlpatterns = [
     path('phidichvu/', views.phi_dich_vu, name='phi_dich_vu'),
     path('phidichvu/chitiet/<int:loai_phi_dich_vu_id>', views.phi_dich_vu_chi_tiet, name='phi_dich_vu_chi_tiet'),
     path('print/phidichvu/chitiet/<int:phi_dich_vu_id>', views.in_phi_dich_vu, name='in_phi_dich_vu'),
+    path('khachhang/', views.khach_hang, name='khach_hang'),
+    path('khachhang/danhmuc/<int:danh_muc_khach_hang_id>', views.khach_hang_theo_danh_muc, name='khach_hang_theo_danh_muc'),
 ]

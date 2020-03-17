@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KẾT TOÁN SAO VÀNG</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body style="background-color: white;">
+    <div class="container" style="margin-top: -10px;">
+        <a href="javaScript:window.print()">
+            <img src="{% static 'images/btn-print.gif' %}" alt="" style="width: 84px; float: right; margin-top: 20px; margin-right: 10px;"/>
+        </a>
+        <br />
+        <div class="right">
+            <div class="detail">
+                <h4>{{ tuyendung.tieu_de }}</h4>
+                <p><span class="ngay-tao">{{ tuyendung.ngay_tao_day_du }}</span></p>
+                <img src="{{ tuyendung.image.url }}" alt="">
+                <strong>{{ tuyendung.mo_ta_ngan|safe }}</strong>
+                {{ tuyendung.noi_dung|safe }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+    
+   

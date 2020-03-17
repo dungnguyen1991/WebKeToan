@@ -1,0 +1,16 @@
+{% extends 'dichvu/dichvu_base.html' %}
+
+{% block left_menu %}
+    {% for loai_khach_hang in danh_muc_khach_hang %}
+    <li><a href="{% url 'khach_hang_theo_danh_muc' loai_khach_hang.id %}">{{ loai_khach_hang }}</a></li>
+    {% endfor %}
+{% endblock%}
+
+{% block main_content %}
+    <h3>{{ khachhang.menu }}</h3>
+
+    <div class="detail">
+        <h4>{{ khachhang.tieu_de }}</h4>
+        {{ khachhang.noi_dung|safe }}
+    </div>
+{% endblock %}

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.core.exceptions import MultipleObjectsReturned
 from trangchu.views import create_menu
 from trangchu.models import Menu
-from .models import DichVu,PhiDichVu
+from .models import DichVu,PhiDichVu,KhachHang
 from tintuc.views import phan_trang
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -94,3 +94,28 @@ def phi_dich_vu_chi_tiet(request, loai_phi_dich_vu_id):
 def in_phi_dich_vu(request, phi_dich_vu_id):
     phidichvu = get_object_or_404(PhiDichVu, pk=phi_dich_vu_id)
     return render(request, 'dichvu/phidichvu_print.html', {'phidichvu':phidichvu})
+
+# Module khach hang
+def khach_hang(request):
+    danh_muc_khach_hang = Menu.objects.filter(menu_parent = Menu.objects.get(menu_link='/dichvu/khachhang/'))
+    
+    try:
+        khachhang = get_object_or_404(KhachHang, menu =  danh_muc_khach_hang[0])
+    except MultipleObjectsReturned:
+        khachhang = get_list_or_404(KhachHang, menu = danh_muc_khach_hang[0])[0]
+    
+    return render(request,'dichvu/khachhang_chi_tiet.html', {'danh_muc_khach_hang':danh_muc_khach_hang,
+                                                          'khachhang':khachhang,
+                                                          'main_menu': create_menu(None),})
+
+def khach_hang_theo_danh_muc(request, danh_muc_khach_hang_id):
+    danh_muc_khach_hang = Menu.objects.filter(menu_parent = Menu.objects.get(menu_link='/dichvu/khachhang/'))
+    
+    try:
+        khachhang = get_object_or_404(KhachHang, menu =  get_object_or_404(Menu, pk=danh_muc_khach_hang_id))
+    except MultipleObjectsReturned:
+        khachhang = get_list_or_404(KhachHang, menu = get_object_or_404(Menu, pk=danh_muc_khach_hang_id))[0]
+    
+    return render(request,'dichvu/khachhang_chi_tiet.html', {'danh_muc_khach_hang':danh_muc_khach_hang,
+                                                          'khachhang':khachhang,
+                                                          'main_menu': create_menu(None),})

@@ -1,0 +1,40 @@
+{% extends 'tintuc/tintuc_base.html' %}
+
+{% load static %}
+
+{% block left_menu %}
+    {% for danh_muc in muc_tuyen_dung %}
+    <li><a href="{% url 'danh_muc_tuyen_dung' danh_muc.id %}">{{ danh_muc }}</a></li>
+    {% endfor %}
+{% endblock%}
+
+{% block main_content %}
+
+    <h3>{{ tuyendung.menu }}</h3>
+
+    <div class="detail">
+        <h4>{{ tuyendung.tieu_de }}</h4>
+        <p><span class="ngay-tao">{{ tuyendung.ngay_tao_day_du }}</span></p>
+        <img src="{{ tuyendung.image.url }}" alt="">
+        <strong>{{ tuyendung.mo_ta_ngan|safe }}</strong>
+        {{ tuyendung.noi_dung|safe }}
+    </div>
+
+    <div class="function">
+        <a href="{% url 'in_tuyen_dung' tuyendung.id %}" target="_blank"><img class="print" src="{% static 'images/icon_print.png' %}" alt=""></a>
+    </div>
+    
+    {% if cac_thong_tin_tuyen_dung_lien_quan.count != 0 %}
+    <div class="relative">
+        <h4>CÁC TIN KHÁC:</h4>
+
+        <div>
+            <ul>
+                {% for thong_tin_tuyen_dung_lien_quan in cac_thong_tin_tuyen_dung_lien_quan %}
+                <li><a href="{% url 'tuyen_dung_chi_tiet' thong_tin_tuyen_dung_lien_quan.id %}">{{ thong_tin_tuyen_dung_lien_quan }}</a> <span class="ngay-tao">({{ thong_tin_tuyen_dung_lien_quan.ngay_tao_ngan }})</span> </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

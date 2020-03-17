@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'tintuc.apps.TintucConfig',
     'gioithieu.apps.GioithieuConfig',
     'dichvu.apps.DichvuConfig',
+    'quydinhnghiepvu.apps.QuydinhnghiepvuConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

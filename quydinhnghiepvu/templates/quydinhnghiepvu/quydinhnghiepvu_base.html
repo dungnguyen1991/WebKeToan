@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block left_content %}
+<div class="left_menu">
+    <div class="title">
+        DANH MỤC
+    </div>
+    <ul class="items">
+        {% block left_menu %}{% endblock %}
+    </ul>
+</div>
+<div class="right">
+        {% block main_content %}{% endblock %}
+</div>
+{% endblock %}

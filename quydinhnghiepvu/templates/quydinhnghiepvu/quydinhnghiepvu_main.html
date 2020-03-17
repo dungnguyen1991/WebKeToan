@@ -1,0 +1,54 @@
+{% extends 'quydinhnghiepvu/quydinhnghiepvu_base.html' %}
+
+{% block left_menu %}
+{% for loai_quy_dinh_nghiep_vu in danh_muc %}
+<li>
+    <a href="{% url 'quy_dinh_nghiep_vu_theo_danh_muc' loai_quy_dinh_nghiep_vu.id %}">
+        {{loai_quy_dinh_nghiep_vu}}
+    </a>
+</li>
+{% endfor %}
+{% endblock %}
+
+
+{% block main_content %}
+
+<h3>{{ danhmucnghiepvus.0.menu }}</h3>
+
+{% for quydinhnghiepvu in danhmucnghiepvus %}
+<div class="item">
+    <a href="{% url 'quy_dinh_nghiep_vu_chi_tiet' quydinhnghiepvu.id %}"><img src="{{ quydinhnghiepvu.image.url }}" alt=""></a>
+    <div class="content">
+        <h4><a href="{% url 'quy_dinh_nghiep_vu_chi_tiet' quydinhnghiepvu.id %}">{{ quydinhnghiepvu.tieu_de }}</a></h4>
+        {{ quydinhnghiepvu.mo_ta_ngan|safe }}
+    </div>
+</div>
+{% endfor %}
+
+{% if danhmucnghiepvus.paginator.num_pages > 1 %}
+<ul class="naginator">
+    {% if xu_ly_phan_trang.chuyen_den_trang_dau %}
+    <li><a href="?page=1">&laquo;</a></li>
+    {% endif %}
+    {% if danhmucnghiepvus.has_previous %}
+    <li><a href="?page={{ danhmucnghiepvus.previous_page_number }}">&lt;</a></li>
+    {% endif %}
+
+    {% for page in danhmucnghiepvus.paginator.page_range %}
+    {% if danhmucnghiepvus.number == page %}
+    <li><span>{{page}}</span></li>
+    {% elif page >= xu_ly_phan_trang.trang_bat_dau and page <= xu_ly_phan_trang.trang_ket_thuc %}
+    <li><a href="?page={{page}}">{{page}}</a></li>
+    {% endif %}
+    {% endfor %}
+    
+    {% if danhmucnghiepvus.has_next %}
+    <li><a href="?page={{ danhmucnghiepvus.next_page_number}}">	&gt;</a></li>
+    {% endif %}
+    {% if xu_ly_phan_trang.chuyen_den_trang_cuoi%}
+    <li><a href="?page={{danhmucnghiepvus.paginator.num_pages}}">&raquo;</a></li>
+    {% endif %}
+</ul>
+{% endif %}
+
+{% endblock %}

@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>KẾT TOÁN SAO VÀNG</title>
+    <title>KẾ TOÁN SAO VÀNG</title>
     <link rel="icon" href="{% static 'images/GOLDEN_STAR_2_dong.png' %}" type="image/x-icon" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script type="text/javascript" src="{% static 'js/tabs.js' %}"></script>
 </head>
 <body>
     <header>
         <div id="logo">
-            <a href="">
+            <a href="{% url 'index' %}">
                     <img src="{% static 'images/LOGO_SAOVANG_KT_THUE_TV_02_2.png' %}" alt="Không thể load logo!">
             </a>
         </div>
@@ -27,11 +28,11 @@
             </p>
             <p>Email: <span>ngocthu@ketoansaovang.com</span></p>
         </div>
-        <div class="sign_in_sign_out">
+        <!-- <div class="sign_in_sign_out">
             <p>
                 <a href="#">Đăng nhập</a> | <a href="#">Đăng ký</a>
             </p>
-        </div>
+        </div> -->
     </header>
 
     <nav>
@@ -52,12 +53,13 @@
 
     <div class="container">
         <img src="{% static 'images/keToanBanner.png' %}" alt="">
-
-        <div class="left_content">
-            {% block left_content %}{% endblock %}
-        </div>
-        
-        <div class="right_content"></div>
+        {% block container %}
+            <div class="left_content">
+                {% block left_content %}{% endblock %}
+            </div>
+            
+            <div class="right_content"></div>
+        {% endblock %}
 
     </div>
 

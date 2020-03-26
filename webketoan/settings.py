@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'dichvu.apps.DichvuConfig',
     'quydinhnghiepvu.apps.QuydinhnghiepvuConfig',
     'tuyendung.apps.TuyendungConfig',
+    'lienhe.apps.LienheConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

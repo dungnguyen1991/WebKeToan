@@ -28,4 +28,5 @@ urlpatterns = [
     path('dichvu/', include('dichvu.urls')),
     path('quydinhnghiepvu/', include('quydinhnghiepvu.urls')),
     path('tuyendung/', include('tuyendung.urls')),
+    path('lienhe/', include('lienhe.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

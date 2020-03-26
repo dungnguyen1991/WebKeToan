@@ -15,6 +15,7 @@ from trangchu.models import Menu
 class TinTuc(models.Model):
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE, default = 1)
     tieu_de = models.CharField(max_length = 255)
+    tin_noi_bat = models.BooleanField(default=False)
     ngay_tao = models.DateTimeField()
     mo_ta_ngan = models.TextField()
     image = models.ImageField(upload_to='images/')
@@ -55,3 +56,9 @@ class TinTuc(models.Model):
         ngay_tao_dai = ngay_tao_dai + ", " + local_now.strftime("%d/%m/%Y, %H:%M UTC%Z")
 
         return ngay_tao_dai
+    
+    def rut_gon_tieu_de(self):
+        return self.tieu_de[:55]
+
+    def rut_gon_mo_ta_ngan(self):
+        return self.mo_ta_ngan[:55]

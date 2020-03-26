@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<div class="lienhe">
+    <h2>LIÊN HỆ - GÓP Ý</h2>
+    <div class="lienhe_body">
+        <div class="contact_infor">
+            <div class="infor">
+                <h3>TRỤ SỞ CHÍNH</h3>
+                <h3>CÔNG TY TNHH KẾ TOÁN VÀ TƯ VẤN SAO VÀNG</h3>
+                <P>Địa chỉ: Số 9 Phan Kế Bính, Phường ĐaKao, Quận 1, Tp.HCM</P>
+                <p>Điện thoại: 028.6283.3918-0914.19.07.07-0942.05.04.07</p>
+                <p>Email: ngocthu@ketoansaovang.com</p>
+            </div>
+        
+            <div class="infor">
+                <h3>CHI NHÁNH BÌNH THẠNH - TP.HCM</h3>
+                <P>Địa chỉ: P7-38.OT07, Tòa Park 7, Vinhomes Central Park, 720A Điện Biên Phủ, Bình Thạnh, TPHCM</P>
+                <p>Điện thoại: 028.6283.3918-0914.19.07.07-0942.05.04.07</p>
+                <p>Email: ngocthu@ketoansaovang.com</p>
+            </div>
+        
+            <div class="infor">
+                <h3>CHI NHÁNH BÌNH DƯƠNG</h3>
+                <P>Địa chỉ: 15 Huỳnh Văn Nghê, P.Phú Hoàn, Thủ Dầu 1, Bình Dương</P>
+                <p>Điện thoại: 0914.19.07.07-0942.05.04.07</p>
+                <p>Email: ngocthu@ketoansaovang.com</p>
+            </div>
+        </div>
+        
+        <div class="feedback_form">
+            
+            
+            <form method="POST" action="{% url 'lien_he' %}">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>
+                        {% if action %}
+                            <div class="error">
+                                {{ action }}
+                            </div>
+                        {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Họ và tên<span>*</span></td>
+                        <td><input type="text" name="hoten"/></td>
+                    </tr>
+    
+                    <tr>
+                        <td>Email<span>*</span></td>
+                        <td><input type="text" name="email"/></td>
+                    </tr>
+    
+                    <tr>
+                        <td>Tên công ty<span>*</span></td>
+                        <td><input type="text" name="tencongty"/></td>
+                    </tr>
+    
+                    <tr>
+                        <td>Địa chỉ<span>*</span></td>
+                        <td><input type="text" name="diachi"/></td>
+                    </tr>
+    
+                    <tr>
+                        <td>Điện thoại<span>*</span></td>
+                        <td><input type="text" name="dienthoai"/></td>
+                    </tr>
+    
+                    <tr>
+                        <td>Fax<span>*</span></td>
+                        <td><input type="text" name="fax"/></td>
+                    </tr>
+    
+                    <tr>
+                        <td>Gửi đến<span>*</span></td>
+                        <td>
+                            <select name="guiden" id="guiden">
+                                <option value="ngocthu@ketoansaovang.com">Công ty Kế toán Sao Vàng</option>
+                            </select>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td>Tiêu đề<span>*</span></td>
+                        <td><input type="text" name="tieude"/></td>
+                    </tr>
+    
+                    <tr>
+                        <td>Nội dung<span>*</span></td>
+                        <td><textarea name="noidung" id="noidung" rows="5"></textarea></td>
+                    </tr>
+    
+                    <!-- <tr>
+                        <td>Mã bảo vệ<span>*</span></td>
+                        <td><input type="text" name="captcha" class="mabaove"/>captcha</td>
+                    </tr> -->
+    
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type="submit">Gửi</button>
+                            <button type="reset">Làm lại</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="google_map">
+    <!-- Tab links -->
+    <div class="tab">
+        <button class="tablinks active" onclick="openCity(event, 'chinh')">Trụ sở chính</button>
+        <button class="tablinks" onclick="openCity(event, 'binhthanh')">Chi nhánh Bình Thạnh</button>
+        <button class="tablinks" onclick="openCity(event, 'binhduong')">Chi nhánh Bình Dương</button>
+    </div>
+  
+  <!-- Tab content -->
+    <div id="chinh" class="tabcontent first">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.5963152276154!2d105.98485281411133!3d10.050131674928215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0701bfa4bd8f3%3A0x45445c85d7651719!2zS2h1IHTGsOG7n25nIG5p4buHbSBHUyBUcuG6p24gxJDhuqFpIE5nxKlh!5e0!3m2!1svi!2s!4v1584616401273!5m2!1svi!2s" width="959" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+    
+    <div id="binhthanh" class="tabcontent">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.9504722198685!2d105.95743241411174!3d10.103140074023587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a07a71c8131947%3A0x4e19ded4aa413c12!2zS2h1IGRpIHTDrWNoIGzhu4tjaCBz4butIGPDoWNoIG3huqFuZyBDw6FpIE5nYW5n!5e0!3m2!1svi!2s!4v1584689600845!5m2!1svi!2s" width="959" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+    
+    <div id="binhduong" class="tabcontent">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3926.455999731208!2d105.98726241411258!3d10.224758071931005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310a9d5c469fbe4f%3A0x2196a27a14f345fe!2zxJDhu4FuIFRo4budIFBo4bqhbSBIw7luZw!5e0!3m2!1svi!2s!4v1584689698641!5m2!1svi!2s" width="959" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+</div>
+{% endblock %}

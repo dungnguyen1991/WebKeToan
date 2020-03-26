@@ -1,32 +1,32 @@
 {% extends 'tintuc/tintuc_base.html' %}
-
+{% load static %}
 {% block left_content %}
 
 <div id="block_0">
     <div class="title"><h1>DỊCH VỤ CHÍNH</h1></div>
     <div class="body">
         <ul>
-            <li><a href="#">Dịch vụ kế toán</a></li>
-            <li><a href="#">Dịch vụ kế toán trưởng</a href="#"></li>
-            <li><a href="#">Dịch vụ làm kế toán, kế toán trưởng, khai thuế, lao động, bảo hiểm xã hội hàng tháng</a href="#"></li>
-            <li><a href="#">Dịch vụ lập báo cáo tài chính, sổ sách kế toán</a href="#"></li>
-            <li><a href="#">Dịch vụ thủ tục thế</a href="#"></li>
-            <li><a href="#">Dịch vụ khai thuế</a href="#"></li>
-            <li><a href="#">Dịch vụ tư vấn thuế</a href="#"></li>
-            <li><a href="#">Dịch vụ cho thê văn phòng đại diện</a href="#"></li>
-            <li><a href="#">Dịch vụ hoàn thuế</a href="#"></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 1 %}">Dịch vụ kế toán</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 2 %}">Dịch vụ kế toán trưởng</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 6 %}">Dịch vụ làm kế toán, kế toán trưởng, khai thuế, lao động, bảo hiểm xã hội hàng tháng</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 7 %}">Dịch vụ lập báo cáo tài chính, sổ sách kế toán</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 8 %}">Dịch vụ thủ tục thuế</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 9 %}">Dịch vụ khai thuế</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 10 %}">Dịch vụ tư vấn thuế</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 11 %}">Dịch vụ cho thê văn phòng đại diện</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 12 %}">Dịch vụ hoàn thuế</a></li>
         </ul>
 
         <ul>
-            <li><a href="#">Dịch vụ thành lập công ty có vốn đầu tư nước ngoài</a href="#"></li>
-            <li><a href="#">Dịch vụ báo cáo tài chính</a href="#"></li>
-            <li><a href="#">Dịch vụ đại lý thuế</a href="#"></li>
-            <li><a href="#">Dịch vụ quyết toán thuế</a href="#"></li>
-            <li><a href="#">Dịch vụ báo cáo thuế</a href="#"></li>
-            <li><a href="#">Dịch vụ thành lập công ty</a href="#"></li>
-            <li><a href="#">Dịch vụ giải thể công ty</a href="#"></li>
-            <li><a href="#">Dịch vụ tính lương, thuế, lao động, bảo hiểm xã hội</a href="#"></li>
-            <li><a href="#">Dịch vụ tư vấn kế toán</a href="#"></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 13 %}">Dịch vụ thành lập công ty có vốn đầu tư nước ngoài</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 14 %}">Dịch vụ báo cáo tài chính</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 15 %}">Dịch vụ đại lý thuế</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 16 %}">Dịch vụ quyết toán thuế</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 17 %}">Dịch vụ báo cáo thuế</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 18 %}">Dịch vụ thành lập công ty</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 19 %}">Dịch vụ giải thể công ty</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 20 %}">Dịch vụ tính lương, thuế, lao động, bảo hiểm xã hội</a></li>
+            <li><a href="{% url 'chi_tiet_dich_vu' 21 %}">Dịch vụ tư vấn kế toán</a></li>
         </ul>
         <!-- <div class="clear"></div> -->
     </div>
@@ -39,20 +39,30 @@
         </div>
         <div class="body">
             <div>
-                <a href="#"><img src="images/150_20_1.jpg" alt=""></a>
+                <a href="{% url 'tin_tuc_chi_tiet' ds_tintuc.0.id %}"><img src="{{ ds_tintuc.0.image.url }}" alt=""></a>
                 <div class="content">
-                    <h4><a href="#">Xử phạt hành chính trong lĩnh vực kế toán</a></h4>
-                    <p>Xử phạt vi phạm quy định về thuế làm dịch vụ ...</p>
+                    <h4>
+                        <a href="{% url 'tin_tuc_chi_tiet' ds_tintuc.0.id %}" title="{{ ds_tintuc.0.tieu_de }}">
+                        {{ ds_tintuc.0.tieu_de|truncatewords:8 }}
+                        </a>
+                    </h4>
+                    <p>
+                        {{ ds_tintuc.0.mo_ta_ngan|truncatewords:8 }}
+                    </p>
                 </div>
             </div>
             <ul>
-                <li><a href="#">Tại sao doanh nghiệp cần thuể dịch vụ kế...</a></li>
-                <li><a href="#">Điều kiện đăng ký hành nghề kế toán</a></li>
-                <li><a href="#">Quyền và trách nhiệm của đại lý thuế</a></li>
+                {% for tintuc in ds_tintuc|slice:'1:' %}
+                <li>
+                    <a href="{% url 'tin_tuc_chi_tiet' tintuc.id %}" title="{{tintuc.tieu_de}}">
+                        {{tintuc.tieu_de|truncatewords:8}}
+                    </a>
+                </li>
+                {% endfor %}
             </ul>
         </div>
 
-        <div class="view_more"><a href="#">Xem tiếp</a><span> >>&nbsp</span></div>
+        <div class="view_more"><a href="{% url 'tintuc' %}">Xem tiếp</a><span> >>&nbsp</span></div>
     </div>
     <div class="right_box">
         <div class="title">
@@ -60,31 +70,39 @@
         </div>
         <div class="body">
             <div>
-                <a href="#"><img src="images/150_LUAT_SAOVANG_02.png" alt=""></a>
+                <a href="{% url 'quy_dinh_nghiep_vu_chi_tiet' ds_quydinhnghiepvu.0.id %}"><img src="{{ ds_quydinhnghiepvu.0.image.url }}" alt=""></a>
                 <div class="content">
-                    <h4><a href="#">Công ty Kế toán đủ điều kiện hành nghề ...</a></h4>
-                    <p>Xác nhận đủ điều kiện hành nghề kế toán</p>
+                    <h4>
+                        <a href="{% url 'quy_dinh_nghiep_vu_chi_tiet' ds_quydinhnghiepvu.0.id %}" title="{{ ds_quydinhnghiepvu.0.tieu_de }}">
+                            {{ ds_quydinhnghiepvu.0.tieu_de|truncatewords:8 }}
+                        </a>
+                    </h4>
+                    <p>{{ ds_quydinhnghiepvu.0.mo_ta_ngan|truncatewords:8 }}</p>
                 </div>
             </div>
             <ul>
-                <li><a href="#">Một số hành vi vi phạm về kế toán cần lưu ý</a></li>
-                <li><a href="#">Hướng dẫn thực hiện Chuẩn mực đạo đực ...</a></li>
-                <li><a href="#">Quy chế kiểm soát chất lượng dịch vụ ...</a></li>
+                {% for item in ds_quydinhnghiepvu|slice:'1:' %}
+                <li>
+                    <a href="{% url 'quy_dinh_nghiep_vu_chi_tiet' item.id %}" title="{{ item.tieu_de }}">
+                        {{ item.tieu_de|truncatewords:8 }}
+                    </a>
+                </li>
+                {% endfor %}
             </ul>
         </div>
 
-        <div class="view_more"><a href="#">Xem tiếp</a><span> >>&nbsp</span></div>
+        <div class="view_more"><a href="{% url 'quy_dinh_nghiep_vu' %}">Xem tiếp</a><span> >>&nbsp</span></div>
     </div>
 </div>
 
-<div class="block nhan_mail">
+<!-- <div class="block nhan_mail">
     <form action="#" method="POST">
         <input type="button" value="ĐĂNG KÝ" id="dang_ky">
         <p class="hint">Đăng ký nhận thông tin dịch vụ qua Email</p>
         <input type="email" name="mail" id="mail">
         <input type="submit" value="Gửi" >
     </form>
-</div>
+</div> -->
 
 <div class="block">
     <div class="left_box">
@@ -93,20 +111,28 @@
         </div>
         <div class="body">
             <div>
-                <a href="#"><img src="images/150_GOLDEN_STAR_4.png" alt=""></a>
+                <a href="{% url 'tin_tuc_chi_tiet' ds_tintucnoibat.0.id %}"><img src="{{ds_tintucnoibat.0.image.url}}" alt=""></a>
                 <div class="content">
-                    <h4><a href="#">Xử phạt hành chính trong lĩnh vực kế toán</a></h4>
-                    <p>Xử phạt vi phạm quy định về thuế làm dịch vụ ...</p>
+                    <h4>
+                        <a href="{% url 'tin_tuc_chi_tiet' ds_tintucnoibat.0.id %}" title="{{ds_tintucnoibat.0.tieu_de}}">
+                            {{ds_tintucnoibat.0.tieu_de|truncatewords:8}}
+                        </a>
+                    </h4>
+                    <p>{{ds_tintucnoibat.0.mo_ta_ngan|truncatewords:8}}</p>
                 </div>
             </div>
             <ul>
-                <li><a href="#">Tại sao doanh nghiệp cần thuể dịch vụ kế...</a></li>
-                <li><a href="#">Điều kiện đăng ký hành nghề kế toán</a></li>
-                <li><a href="#">Quyền và trách nhiệm của đại lý thuế</a></li>
+                {% for item in ds_tintucnoibat|slice:'1:' %}
+                <li>
+                    <a href="{% url 'tin_tuc_chi_tiet' item.id %}" title="{{item.tieu_de}}">
+                        {{item.tieu_de|truncatewords:8}}
+                    </a>
+                </li>
+                {% endfor %}
             </ul>
         </div>
 
-        <div class="view_more"><a href="#">Xem tiếp</a><span> >>&nbsp</span></div>
+        <div class="view_more"><a href="{% url 'tintuc' %}">Xem tiếp</a><span> >>&nbsp</span></div>
     </div>
     <div class="right_box">
         <div class="title">
@@ -114,25 +140,33 @@
         </div>
         <div class="body">
             <div>
-                <a href="#"><img src="images/150_GOLDEN_STAR_4.png" alt=""></a>
+                <a href="{% url 'tin_tuc_chi_tiet' ds_tintucsaovang.0.id %}"><img src="{{ds_tintucsaovang.0.image.url}}" alt=""></a>
                 <div class="content">
-                    <h4><a href="#">Công ty Kế toán đủ điều kiện hành nghề ...</a></h4>
-                    <p>Xác nhận đủ điều kiện hành nghề kế toán</p>
+                    <h4>
+                        <a href="{% url 'tin_tuc_chi_tiet' ds_tintucsaovang.0.id %}" title="{{ds_tintucsaovang.0.tieu_de}}">
+                            {{ds_tintucsaovang.0.tieu_de|truncatewords:8}}
+                        </a>
+                    </h4>
+                    <p>{{ds_tintucsaovang.0.mo_ta_ngan|truncatewords:8}}</p>
                 </div>
             </div>
             <ul>
-                <li><a href="#">Một số hành vi vi phạm về kế toán cần lưu ý</a></li>
-                <li><a href="#">Hướng dẫn thực hiện Chuẩn mực đạo đực ...</a></li>
-                <li><a href="#">Quy chế kiểm soát chất lượng dịch vụ ...</a></li>
+                {% for item in ds_tintucsaovang|slice:'1:' %}
+                <li>
+                    <a href="{% url 'tin_tuc_chi_tiet' item.id %}" title="{{item.tieu_de}}">
+                        {{item.tieu_de|truncatewords:8}}
+                    </a>
+                </li>
+                {% endfor %}
             </ul>
         </div>
 
-        <div class="view_more"><a href="#">Xem tiếp</a><span> >>&nbsp</span></div>
+        <div class="view_more"><a href="{% url 'tin_tuc_theo_loai' ds_tintucsaovang.0.menu.id %}">Xem tiếp</a><span> >>&nbsp</span></div>
     </div>
 </div>
 
 <div class="block block_images">
-    <img src="images/keToanBanner_2.png" alt="">
+    <img src="{% static 'images/keToanBanner_2.png' %}" alt="">
 </div>
 
 <div class="block">
@@ -245,7 +279,7 @@
 </div>
 
 <div class="block block_images">
-    <img src="images/keToanBanner_3.png" alt="">
+    <img src="{% static 'images/keToanBanner_3.png' %}" alt="">
 </div>
 
 <div class="block_1">

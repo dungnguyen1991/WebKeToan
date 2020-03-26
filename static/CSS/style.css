@@ -18,7 +18,9 @@ header{
 	margin-top: -10px;
 	background: rgb(227,227,227);
     background: linear-gradient(0deg, rgba(227,227,227,1) 35%, rgba(255,255,255,1) 100%);
-    position: relative;
+
+    /* dung cho sign_in_sign_out
+    position: relative; */
 }
 
 header #logo{
@@ -59,7 +61,7 @@ header .right span{
     color: blue;
 }
 
-header .sign_in_sign_out{
+/* header .sign_in_sign_out{
     position: absolute;
     right: 5px;
     bottom: 5px;
@@ -72,7 +74,7 @@ header .sign_in_sign_out a{
 
 header .sign_in_sign_out a:hover{
     text-decoration: underline;
-}
+} */
 
 /* main menu */
 nav{
@@ -298,8 +300,9 @@ nav>ul>li>ul a{
     font-weight: normal;
 }
 
-.block img{
+.block .body img{
     width: 100px;
+    height: 80px;
     border: 2px solid gray;
     display: inline-block;
     /* height: 80px; */
@@ -741,11 +744,122 @@ br {
     clear: both;
 }
 
-/* Trang chi dich vu list */
+/* Trang dich vu list */
 .dichvu{
     text-decoration: none;
     color: blue;
     display: block;
 	float: left;
     font-size: 13px;
+}
+
+.lienhe_body::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+/* Trang lien he */
+.lienhe {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+}
+
+.lienhe > h2 {
+    font-weight: normal;
+    border-bottom: 1px dotted gray;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.lienhe_body .infor, .lienhe_body .feedback_form{
+    padding-top: 20px;
+}
+
+.contact_infor, .feedback_form{
+    float: left;
+    width: 50%;
+}
+
+.lienhe_body h3{
+    color: red;
+}
+
+.lienhe_body p{
+    margin-top: 5px;
+}
+.lienhe_body td{
+    line-height: 25px;
+}
+.lienhe_body input, .lienhe_body textarea{
+    width: 300px;
+    padding: 3px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.lienhe_body select{
+    padding: 3px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.lienhe .mabaove{
+    width: 50%;
+}
+
+.lienhe button{
+    padding: 5px;
+    width: 100px;
+    margin-top: 10px;
+}
+
+.lienhe .error{
+    color: red;
+    margin-bottom: 5px;
+}
+
+.lienhe span{
+    color: red;
+}
+/* Lien he - tabs - google map */
+.google_map .tab {
+    overflow: hidden;
+    /* border: 1px solid #ccc;
+    background-color: #f1f1f1; */
+}
+  
+/* Style the buttons that are used to open the tab content */
+.google_map .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.google_map .tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.google_map .tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.google_map .tabcontent {
+    display: none;
+    padding: 0px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.google_map .first{
+    display: block;
 }

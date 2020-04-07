@@ -57,8 +57,8 @@ class TinTuc(models.Model):
 
         return ngay_tao_dai
     
-    def rut_gon_tieu_de(self):
-        return self.tieu_de[:55]
+    # def rut_gon_tieu_de(self):
+    #     return self.tieu_de[:55]
 
-    def rut_gon_mo_ta_ngan(self):
-        return self.mo_ta_ngan[:55]
+    # def rut_gon_mo_ta_ngan(self):
+    #     return self.mo_ta_ngan[:55]

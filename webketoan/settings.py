@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'quydinhnghiepvu.apps.QuydinhnghiepvuConfig',
     'tuyendung.apps.TuyendungConfig',
     'lienhe.apps.LienheConfig',
+    'vanban.apps.VanbanConfig',
+    'vanban.templatetags',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

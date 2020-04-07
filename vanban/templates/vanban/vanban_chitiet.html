@@ -1,0 +1,70 @@
+{% extends 'tintuc/tintuc_base.html' %}
+
+{% load range %}
+
+{% block left_menu %}
+{% for loaivanban in ds_loaivanban %}
+<li><a href="{% url 'hien_thi_van_ban_theo_loai' loaivanban.id %}">{{ loaivanban }}</a></li>
+{% endfor %}
+{% endblock %}
+
+{% block main_content %}
+
+<h3>{{ van_ban.loai_van_ban }}</h3>
+
+<div class="body">
+    <div class="tieude">
+        {{ van_ban.tieu_de }}
+    </div>
+    
+    <table>
+        <tbody>
+            <tr>
+                <td rowspan="6" width="200px">
+                    {% if van_ban.image %}
+                    <img src="{{van_ban.image.url}}" alt="">
+                    {% endif %}
+                </td>
+                <td width="60%">Loại file: {{ ext }}</td>
+            </tr>
+            <tr>
+                <td>Kích thước: {{ filesize }} KB</td>
+            </tr>
+            <tr>
+                <td>Số lần download: {{van_ban.so_lan_download}}</td>
+            </tr>
+            <tr>
+                <td>Điểm:
+                    {% for i in 5|range %}
+                    <span class="fa fa-star {% if i < van_ban.diem %} checked {% endif %}"></span>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>Xem: {{ van_ban.xem }}</td>
+            </tr>
+            <tr>
+                <td>Ngày đăng: {{ van_ban.ngay_dang_ngan }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="action">
+        <div><a href="{% url 'van_ban_download' van_ban.id%}" target="_blank">Download</a></div>
+    </div>
+</div>
+
+{% if cac_tin_tuc_lien_quan.count != 0 %}
+<div class="relative">
+    <h4>CÁC VĂN BẢN KHÁC:</h4>
+
+    <div>
+        <ul>
+            {% for van_ban_lien_quan in cac_van_ban_lien_quan %}
+            <li><a href="{% url 'van_ban_chi_tiet' van_ban_lien_quan.id %}">{{ van_ban_lien_quan.tieu_de }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

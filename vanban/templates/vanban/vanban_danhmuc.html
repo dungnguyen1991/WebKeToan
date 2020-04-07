@@ -1,0 +1,50 @@
+{% extends 'tintuc/tintuc_base.html' %}
+
+{% load static %}
+
+{% block left_menu %}
+{% for loaivanban in ds_loaivanban %}
+<li><a href="{% url 'hien_thi_van_ban_theo_loai' loaivanban.id %}">{{ loaivanban }}</a></li>
+{% endfor %}
+{% endblock %}
+
+{% block main_content %}
+{% if loai_van_ban_duoc_chon == null %}
+<h3>VĂN BẢN PHÁP LUẬT</h3>
+{% else %}
+<h3>{{ loai_van_ban_duoc_chon }}</h3>
+{%  endif %}
+
+{% for vanban in vanbans %}
+<div class="item-vanban">
+    <h4><a href="{% url 'van_ban_chi_tiet' vanban.id %}">{{ vanban.tieu_de }}</a></h4>
+    <div><a href="{% url 'van_ban_chi_tiet' vanban.id %}"><img src="{% static 'images/image_laws.png' %}" alt=""></a></div>
+</div>
+{% endfor %}
+
+{% if vanbans.paginator.num_pages > 1 %}
+    <ul class="naginator">
+        {% if xu_ly_phan_trang.chuyen_den_trang_dau %}
+        <li><a href="?page=1">&laquo;</a></li>
+        {% endif %}
+        {% if vanbans.has_previous %}
+        <li><a href="?page={{ tintucs.previous_page_number }}">&lt;</a></li>
+        {% endif %}
+
+        {% for page in vanbans.paginator.page_range %}
+        {% if vanbans.number == page %}
+        <li><span>{{page}}</span></li>
+        {% elif page >= xu_ly_phan_trang.trang_bat_dau and page <= xu_ly_phan_trang.trang_ket_thuc %}
+        <li><a href="?page={{page}}">{{page}}</a></li>
+        {% endif %}
+        {% endfor %}
+        
+        {% if vanbans.has_next %}
+        <li><a href="?page={{ vanbans.next_page_number}}">	&gt;</a></li>
+        {% endif %}
+        {% if xu_ly_phan_trang.chuyen_den_trang_cuoi%}
+        <li><a href="?page={{vanbans.paginator.num_pages}}">&raquo;</a></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+{% endblock %}

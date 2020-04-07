@@ -162,7 +162,7 @@ nav>ul>li>ul a{
     display: table;
 }
 
-.container img{
+.container > img{
     width: 960px;
     /* xoa khoan trang giua image va div */
     display: block;
@@ -290,6 +290,7 @@ nav>ul>li>ul a{
 .block .body > div{
     margin-top: 10px;
     margin-left: 10px;
+    position: relative;
 }
 
 .block h3{
@@ -310,6 +311,7 @@ nav>ul>li>ul a{
 
 .block .content{
     display: inline-block;
+    position: absolute;
 }
 
 .block .content h4, .block .content p{
@@ -606,7 +608,7 @@ footer .content:not(:first-child){
 	width: 25%;
 }
 
-.container .right .item img{
+.container .right .item > a img{
     width: 115px;
     height: 90px;
     /*display: inline-block;*/
@@ -862,4 +864,66 @@ br {
 
 .google_map .first{
     display: block;
+}
+
+/* CSS cho module van ban */
+/* chi tiet van ban */
+.body {
+    border-top: 1px dotted gray;
+	padding-top: 15px;
+	padding-bottom:15px;
+}
+
+.body .tieude {
+    margin-bottom: 5px;
+    color: blue;
+    text-transform: uppercase;
+}
+
+.body table{
+    border-collapse: collapse;
+}
+
+.body table td{
+    border: 1px solid gray;
+    padding: 2px;
+}
+
+.body table img{
+    width: 200px;
+}
+
+/* star */
+.body table .checked {
+    color: orange;
+}
+
+/* Danh muc van ban */
+.item-vanban {
+    border-top: 1px dotted gray;
+	padding-top: 15px;
+	padding-bottom:15px;
+}
+
+.item-vanban::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.item-vanban h4, .item-vanban div {
+    float: left;
+}
+
+.item-vanban h4 {
+    width: 80%;
+}
+
+.item-vanban h4 a {
+    color: blue;
+    text-decoration: none;
+}
+
+.item-vanban div {
+    width: 20%;
 }

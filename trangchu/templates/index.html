@@ -176,20 +176,27 @@
         </div>
         <div class="body">
             <div>
-                <a href="#"><img src="images/150_LUAT_SAOVANG_01.png" alt=""></a>
+                <a href="#"><img src="{% if ds_vanban.0.image %} {{ds_vanban.0.image.url}} {% endif %}" alt=""></a>
                 <div class="content">
-                    <h4><a href="#">Xử phạt hành chính trong lĩnh vực kế toán</a></h4>
-                    <p>Xử phạt vi phạm quy định về thuế làm dịch vụ ...</p>
+                    <h4>
+                        <a href="{% url 'van_ban_chi_tiet' ds_vanban.0.id %}" title="{{ ds_vanban.0.tieu_de }}">
+                            {{ ds_vanban.0.tieu_de|truncatewords:6 }}
+                        </a>
+                    </h4>
                 </div>
             </div>
             <ul>
-                <li><a href="#">Tại sao doanh nghiệp cần thuể dịch vụ kế...</a></li>
-                <li><a href="#">Điều kiện đăng ký hành nghề kế toán</a></li>
-                <li><a href="#">Quyền và trách nhiệm của đại lý thuế</a></li>
+                {% for item in ds_vanban|slice:'1:' %}
+                <li>
+                    <a href="{% url 'van_ban_chi_tiet' item.id %}" title="{{ item.tieu_de }}">
+                        {{ item.tieu_de|truncatewords:6 }}
+                    </a>
+                </li>
+                {% endfor %}
             </ul>
         </div>
 
-        <div class="view_more"><a href="#">Xem tiếp</a><span> >>&nbsp</span></div>
+        <div class="view_more"><a href="{% url 'ban_ban' %}">Xem tiếp</a><span> >>&nbsp</span></div>
     </div>
     <div class="right_box">
         <div class="title">

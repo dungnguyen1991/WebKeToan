@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="{% static 'js/tabs.js' %}"></script>
+    
 </head>
 <body>
     <header>
@@ -55,13 +56,12 @@
     <div class="container">
         <img src="{% static 'images/keToanBanner.png' %}" alt="">
         {% block container %}
-            <div class="left_content">
-                {% block left_content %}{% endblock %}
-            </div>
-            
-            <div class="right_content"></div>
+        <div class="left_content">
+            {% block left_content %}{% endblock %}
+        </div>
+        
+        <div class="right_content"></div>
         {% endblock %}
-
     </div>
 
     <footer>

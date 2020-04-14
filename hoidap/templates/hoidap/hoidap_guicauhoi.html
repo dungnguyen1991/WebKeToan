@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block left_content %}
+<div class="sendquestion_title">
+    <h3>GỬI CÂU HỎI</h3>
+    <h3 class="comeback">
+        <a href="{% url 'hoi_dap' %}">
+            TRỞ VỀ DANH SÁCH
+        </a>
+    </h3>
+</div>
+<div class="question_form">
+    <form method="POST" action="{% url 'gui_cau_hoi' %}">
+        {% csrf_token %}
+        <table width="100%">
+            <tr>
+                <td></td>
+                <td>
+                    {% if action %}
+                        <div class="error">
+                            {{ action }}
+                        </div>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Họ tên: <span>*</span></td>
+                <td><input type="text" name="hoten"></td>
+            </tr>
+            <tr>
+                <td>Email: <span>*</span></td>
+                <td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>Danh mục: <span>*</span></td>
+                <td>
+                    <select name="danhmuc" id="danhmuc">
+                        <option value="1">Tư vấn Kế toán-Kiểm toán</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Nội dung: <span>*</span></td>
+                <td>
+                    <textarea name="noidung" id="noidung" cols="30" rows="10"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Gửi</button>
+                    <button type="reset">Hủy bỏ</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}

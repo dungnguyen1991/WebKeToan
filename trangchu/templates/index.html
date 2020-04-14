@@ -204,17 +204,17 @@
         </div>
         <div class="body full_test">
             <ul>
-                <li><a href="#">Một số hành vi vi phạm về kế toán cần lưu ý</a></li>
-                <li><a href="#">Hướng dẫn thực hiện Chuẩn mực đạo đực ...</a></li>
-                <li><a href="#">Quy chế kiểm soát chất lượng dịch vụ ...</a></li>
-                <li><a href="#">Một số hành vi vi phạm về kế toán cần lưu ý</a></li>
-                <li><a href="#">Hướng dẫn thực hiện Chuẩn mực đạo đực ...</a></li>
-                <li><a href="#">Quy chế kiểm soát chất lượng dịch vụ ...</a></li>
-                <li><a href="#">Hướng dẫn thực hiện Chuẩn mực đạo đực ...</a></li>
+                {% for tra_loi in ds_hoidap %}
+                <li>
+                    <a href="{% url 'hoi_dap_chi_tiet' tra_loi.cau_hoi.id %}" title="{{tra_loi.cau_hoi}}">
+                        {{tra_loi.cau_hoi|truncatewords:8}}
+                    </a>
+                </li>
+                {% endfor %}
             </ul>
         </div>
 
-        <div class="view_more"><a href="#">Xem tiếp</a><span> >>&nbsp</span></div>
+        <div class="view_more"><a href="{% url 'hoi_dap' %}">Xem tiếp</a><span> >>&nbsp</span></div>
     </div>
 </div>
 

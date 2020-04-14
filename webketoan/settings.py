@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'lienhe.apps.LienheConfig',
     'vanban.apps.VanbanConfig',
     'vanban.templatetags',
+    'hoidap.apps.HoidapConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

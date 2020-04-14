@@ -30,4 +30,5 @@ urlpatterns = [
     path('tuyendung/', include('tuyendung.urls')),
     path('lienhe/', include('lienhe.urls')),
     path('vanban/', include('vanban.urls')),
+    path('hoidap/', include('hoidap.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

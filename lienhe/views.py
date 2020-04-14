@@ -6,7 +6,7 @@ from .models import FeedBack
 def lien_he(request):
     if request.method == 'POST':
         for key in request.POST:
-            if len(request.POST[key]) == 0:
+            if len(request.POST[key].strip()) == 0:
                 action = 'Xin nhập tất cả nội dung có đánh dấu *'
                 return render(request, 'lienhe/lienhe.html',{'main_menu': create_menu(None),'action': action})
 

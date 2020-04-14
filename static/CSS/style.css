@@ -550,6 +550,7 @@ footer .content:not(:first-child){
     /* padding-bottom: 15px; */
     padding-left: 10px;
     font-size: 16px;
+    border: none;
 }
 .left_menu li{
     list-style: none;
@@ -792,9 +793,12 @@ br {
 .lienhe_body p{
     margin-top: 5px;
 }
+
+/* form lien he */
 .lienhe_body td{
     line-height: 25px;
 }
+
 .lienhe_body input, .lienhe_body textarea{
     width: 300px;
     padding: 3px;
@@ -868,8 +872,12 @@ br {
 
 /* CSS cho module van ban */
 /* chi tiet van ban */
+.title {
+    border-bottom: 1px dotted gray;
+}
+
 .body {
-    border-top: 1px dotted gray;
+    /* border-top: 1px dotted gray; */
 	padding-top: 15px;
 	padding-bottom:15px;
 }
@@ -926,4 +934,121 @@ br {
 
 .item-vanban div {
     width: 20%;
+}
+
+/* Hoi dap */
+.qa_title{
+    margin-left: 15px;
+    margin-right: 15px;
+    border-bottom: 1px dotted gray;
+    position: relative;
+}
+
+.qa_title #guicauhoi{
+    background-color: #a50404;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.qa_title #guicauhoi a{
+    color: white;
+    text-decoration: none;
+}
+
+.qa_title h3{
+    margin-bottom: 10px;
+    padding-top: 15px;
+}
+
+.question_answer li{
+    list-style: none;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.question_answer .question{
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: blue;
+}
+
+.question_answer .answer{
+    display: none;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.question_answer .cautraloi{
+    color: #666666;
+    font-weight: bold;
+}
+
+/* gui cau hoi */
+.sendquestion_title{
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    position: relative;
+    border-bottom: 1px dotted gray;
+    padding-bottom: 5px;
+}
+
+.sendquestion_title .comeback{
+    
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.sendquestion_title .comeback a{
+    text-decoration: none;
+    color: black;
+}
+
+.sendquestion_title .comeback a:hover{
+    color: blue;
+}
+
+.question_form{
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.question_form td{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.question_form input,
+.question_form textarea
+{
+    padding: 5px;
+    font-size: 14px;
+    width: 90%;
+}
+
+.question_form select
+{
+    padding: 5px;
+    font-size: 14px;
+}
+.question_form button
+{
+    padding: 5px;
+    font-size: 14px;
+    width: 80px;
 }

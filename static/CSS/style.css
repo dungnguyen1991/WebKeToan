@@ -177,7 +177,6 @@ nav>ul>li>ul a{
 .container .right_content{
     width: 235px;
     float: right;
-    height: 800px;
     background-color: #f0f0f0;
 }
 
@@ -1051,4 +1050,10 @@ br {
     padding: 5px;
     font-size: 14px;
     width: 80px;
+}
+
+
+/* noi dung phai */
+.right_content img{
+    margin-top: 15px;
 }

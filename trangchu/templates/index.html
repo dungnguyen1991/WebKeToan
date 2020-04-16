@@ -224,135 +224,40 @@
             <h3>KIẾN THỨC KINH DOANH</h3>
         </div>
         <div class="body">
+            {% for kinhnghiemkienthuc in ds_kinhnghiemkienthuc %}
             <div>
-                <a href="#"><img src="images/50_32.jpg" alt=""></a>
+                <a href="{% url 'tin_tuc_chi_tiet' kinhnghiemkienthuc.id %}"><img src="{{kinhnghiemkienthuc.image.url}}" alt=""></a>
                 <div class="content">
-                    <h4><a href="#">Xử phạt hành chính trong ...</a></h4>
-                    <p>Xử phạt vi phạm quy định về thuế làm dịch vụ ...</p>
+                    <h4><a href="#">{{kinhnghiemkienthuc.tieu_de|truncatewords:6}}</a></h4>
+                    <p>{{kinhnghiemkienthuc.mo_ta_ngan|truncatewords:10}}</p>
                 </div>
             </div>
-
-            <div>
-                <a href="#"><img src="images/50_32.jpg" alt=""></a>
-                <div class="content">
-                    <h4><a href="#">Xử phạt hành chính trong ...</a></h4>
-                    <p>Xử phạt vi phạm quy định về thuế làm dịch vụ ...</p>
-                </div>
-            </div>
-
-            <div>
-                <a href="#"><img src="images/50_32.jpg" alt=""></a>
-                <div class="content">
-                    <h4><a href="#">Xử phạt hành chính trong ...</a></h4>
-                    <p>Xử phạt vi phạm quy định về thuế làm dịch vụ ...</p>
-                </div>
-            </div>
+            {% endfor %}             
         </div>
 
-        <div class="view_more"><a href="#">Xem tiếp</a><span> >>&nbsp</span></div>
+        <div class="view_more"><a href="{% url 'tin_tuc_theo_loai' ds_kinhnghiemkienthuc.0.menu.id %}">Xem tiếp</a><span> >>&nbsp</span></div>
     </div>
     <div class="right_box">
         <div class="title">
             <h3>TUYỂN DỤNG</h3>
         </div>
         <div class="body">
+            {% for tuyendung in ds_tuyendung %}
             <div>
-                <a href="#"><img src="images/50_GOLDEN_STAR_150_150_1.png" alt=""></a>
+                <a href="{% url 'tuyen_dung_chi_tiet' tuyendung.id %}"><img src="{{tuyendung.image.url}}" alt=""></a>
                 <div class="content">
-                    <h4><a href="#">Công ty Kế toán đủ điều kiện ...</a></h4>
-                    <p>Xác nhận đủ điều kiện hành nghề kế toán</p>
+                    <h4>
+                        <a href="{% url 'tuyen_dung_chi_tiet' tuyendung.id %}" title="{{tuyendung.tieu_de}}">
+                            {{tuyendung.tieu_de|truncatewords:6}}
+                        </a>
+                    </h4>
+                    <p>{{tuyendung.mo_ta_ngan|truncatewords:10}}</p>
                 </div>
             </div>
-            
-            <div>
-                <a href="#"><img src="images/50_GOLDEN_STAR_150_150_1.png" alt=""></a>
-                <div class="content">
-                    <h4><a href="#">Công ty Kế toán đủ điều kiện ...</a></h4>
-                    <p>Xác nhận đủ điều kiện hành nghề kế toán</p>
-                </div>
-            </div>
-
-            <div>
-                <a href="#"><img src="images/50_GOLDEN_STAR_150_150_1.png" alt=""></a>
-                <div class="content">
-                    <h4><a href="#">Công ty Kế toán đủ điều kiện ...</a></h4>
-                    <p>Xác nhận đủ điều kiện hành nghề kế toán</p>
-                </div>
-            </div>
+            {% endfor %}
         </div>
 
-        <div class="view_more"><a href="#">Xem tiếp</a><span> >>&nbsp</span></div>
-    </div>
-</div>
-
-<div class="block block_images">
-    <img src="{% static 'images/keToanBanner_3.png' %}" alt="">
-</div>
-
-<div class="block_1">
-    <div class="left_box">
-        <div class="title">
-            <h3>KIẾN THỨC KINH DOANH</h3>
-        </div>
-        <div class="body">
-            <div>
-                <a href="#"><img src="images/50_32.jpg" alt=""></a>
-                <div class="content">
-                    <h4><a href="#">Xử phạt hành chính trong ...</a></h4>
-                    <p>Xử phạt vi phạm quy định về thuế làm dịch vụ ...</p>
-                </div>
-            </div>
-
-            <div>
-                <a href="#"><img src="images/50_32.jpg" alt=""></a>
-                <div class="content">
-                    <h4><a href="#">Xử phạt hành chính trong ...</a></h4>
-                    <p>Xử phạt vi phạm quy định về thuế làm dịch vụ ...</p>
-                </div>
-            </div>
-
-            <div>
-                <a href="#"><img src="images/50_32.jpg" alt=""></a>
-                <div class="content">
-                    <h4><a href="#">Xử phạt hành chính trong ...</a></h4>
-                    <p>Xử phạt vi phạm quy định về thuế làm dịch vụ ...</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="view_more"><a href="#">Xem tiếp</a><span> >>&nbsp</span></div>
-    </div>
-    <div class="right_box">
-        <div class="title">
-            <h3>TUYỂN DỤNG</h3>
-        </div>
-        <div class="body">
-            <div>
-                <a href="#"><img src="images/50_GOLDEN_STAR_150_150_1.png" alt=""></a>
-                <div class="content">
-                    <h4><a href="#">Công ty Kế toán đủ điều kiện ...</a></h4>
-                    <p>Xác nhận đủ điều kiện hành nghề kế toán</p>
-                </div>
-            </div>
-            
-            <div>
-                <a href="#"><img src="images/50_GOLDEN_STAR_150_150_1.png" alt=""></a>
-                <div class="content">
-                    <h4><a href="#">Công ty Kế toán đủ điều kiện ...</a></h4>
-                    <p>Xác nhận đủ điều kiện hành nghề kế toán</p>
-                </div>
-            </div>
-
-            <div>
-                <a href="#"><img src="images/50_GOLDEN_STAR_150_150_1.png" alt=""></a>
-                <div class="content">
-                    <h4><a href="#">Công ty Kế toán đủ điều kiện ...</a></h4>
-                    <p>Xác nhận đủ điều kiện hành nghề kế toán</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="view_more"><a href="#">Xem tiếp</a><span> >>&nbsp</span></div>
+        <div class="view_more"><a href="{% url 'tuyen_dung' %}">Xem tiếp</a><span> >>&nbsp</span></div>
     </div>
 </div>
 {% endblock %}

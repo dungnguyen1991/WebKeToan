@@ -3,6 +3,7 @@ var questions = document.querySelectorAll(".question");
 
 var tag_duoc_chon = document.querySelector("div[style='display: block;']");
 
+// chuyen de vi tri mong muon
 if (tag_duoc_chon){
     window.scrollTo(0, tag_duoc_chon.getBoundingClientRect().top - 50);
 }
